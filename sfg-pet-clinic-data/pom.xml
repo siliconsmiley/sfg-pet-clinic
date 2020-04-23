@@ -16,11 +16,10 @@
 
     <properties>
         <java.version>11</java.version>
-<!-- attempting to fix
+<!-- fixed
 sfg-pet-clinic-data: Execution repackage of goal org.springframework.boot:spring-boot-maven-plugin:2.2.6.RELEASE:repackage failed: Unable to find main class
 -->
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
-
     </properties>
 
 
@@ -62,21 +61,6 @@ sfg-pet-clinic-data: Execution repackage of goal org.springframework.boot:spring
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-
-                <!-- attempting to fix
-                sfg-pet-clinic-data: Execution repackage of goal org.springframework.boot:spring-boot-maven-plugin:2.2.6.RELEASE:repackage failed: Unable to find main class
-
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                        <configuration>
-                            <skip>true</skip>
-                        </configuration>
-                    </execution>
-                </executions>
-                -->
             </plugin>
         </plugins>
     </build>
