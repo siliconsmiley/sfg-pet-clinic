@@ -53,7 +53,7 @@
         </plugins>
     </build>
     <scm>
-        <developerConnection>scm:git:git@github.com:siliconsmiley/sfg-pet-clinic.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:siliconsmiley:fishFACE01)C/sfg-pet-clinic.git</developerConnection>
       <tag>sfg-pet-clinic-0.0.3</tag>
   </scm>
 
