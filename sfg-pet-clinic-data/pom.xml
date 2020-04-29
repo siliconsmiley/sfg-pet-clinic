@@ -64,7 +64,6 @@ sfg-pet-clinic-data: Execution repackage of goal org.springframework.boot:spring
         </plugins>
     </build>
 
-
   <scm>
     <tag>sfg-pet-clinic-0.0.3</tag>
   </scm>
