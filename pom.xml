@@ -53,6 +53,8 @@
         </plugins>
     </build>
     <scm>
+        <!-- [ERROR] git@github.com: Permission denied (publickey) -->
+        <!-- [ERROR] The git-commit command failed. -->
         <developerConnection>scm:git:https://github.com/siliconsmiley/sfg-pet-clinic.git</developerConnection>
       <tag>sfg-pet-clinic-0.0.3</tag>
   </scm>
