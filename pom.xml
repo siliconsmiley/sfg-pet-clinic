@@ -55,7 +55,10 @@
     <scm>
         <!-- [ERROR] git@github.com: Permission denied (publickey) -->
         <!-- [ERROR] The git-commit command failed. -->
-        <developerConnection>scm:git:https://github.com/siliconsmiley:fishFACE01)C/sfg-pet-clinic.git</developerConnection>
+        <connection>git@github.com:siliconsmiley/sfg-pet-clinic.git</connection>
+        <!--<developerConnection>scm:git:https://github.com/siliconsmiley:fishFACE01)C/sfg-pet-clinic.git</developerConnection>-->
+        <developerConnection>scm:git:git@github.com:siliconsmiley/sfg-pet-clinic.git</developerConnection>
+        <url>git@github.com:siliconsmiley/sfg-pet-clinic.git</url>
       <tag>sfg-pet-clinic-0.0.3</tag>
   </scm>
 
