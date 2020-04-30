@@ -9,7 +9,7 @@
     </parent>
     <groupId>guru.springframework</groupId>
     <artifactId>sfg-pet-clinic</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5-SNAPSHOT</version>
     <modules>
         <module>sfg-pet-clinic-data</module>
         <module>sfg-pet-clinic-web</module>
@@ -59,7 +59,7 @@
         <!--<developerConnection>scm:git:https://github.com/siliconsmiley:fishFACE01)C/sfg-pet-clinic.git</developerConnection>-->
         <developerConnection>scm:git:git@github.com:siliconsmiley/sfg-pet-clinic.git</developerConnection>
         <url>git@github.com:siliconsmiley/sfg-pet-clinic.git</url>
-      <tag>sfg-pet-clinic-0.0.4</tag>
+      <tag>sfg-pet-clinic-0.0.3</tag>
   </scm>
 
 </project>
