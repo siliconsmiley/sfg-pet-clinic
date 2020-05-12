@@ -9,7 +9,7 @@
     </parent>
     <groupId>guru.springframework</groupId>
     <artifactId>sfg-pet-clinic-data</artifactId>
-    <version>0.0.6</version>
+    <version>0.0.7-SNAPSHOT</version>
     <name>sfg-pet-clinic-data</name>
     <description>Data module for Pet Clinic</description>
 
@@ -65,6 +65,6 @@ sfg-pet-clinic-data: Execution repackage of goal org.springframework.boot:spring
     </build>
 
   <scm>
-    <tag>sfg-pet-clinic-0.0.6</tag>
+    <tag>sfg-pet-clinic-0.0.4</tag>
   </scm>
 </project>
