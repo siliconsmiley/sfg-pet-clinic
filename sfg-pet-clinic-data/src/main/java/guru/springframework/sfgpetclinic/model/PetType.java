@@ -1,4 +1,4 @@
-package guru.springframework.sfgpetclinicdata.model;
+package guru.springframework.sfgpetclinic.model;
 
 import java.util.Objects;
 
