@@ -4,9 +4,18 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Pet extends BaseEntity {
+    private String name;
     private PetType petType;
     private Owner owner;
     private LocalDate birthdate;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public PetType getPetType() {
         return petType;
@@ -37,20 +46,22 @@ public class Pet extends BaseEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pet pet = (Pet) o;
-        return Objects.equals(petType, pet.petType) &&
+        return Objects.equals(name, pet.name) &&
+                Objects.equals(petType, pet.petType) &&
                 Objects.equals(owner, pet.owner) &&
                 Objects.equals(birthdate, pet.birthdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(petType, owner, birthdate);
+        return Objects.hash(name, petType, owner, birthdate);
     }
 
     @Override
     public String toString() {
         return "Pet{" +
-                "petType=" + petType +
+                "name='" + name + '\'' +
+                ", petType=" + petType +
                 ", owner=" + owner +
                 ", birthdate=" + birthdate +
                 '}';
