@@ -20,13 +20,15 @@ public class DataLoader implements CommandLineRunner {
     private final PetTypeService petTypeService;
     private final PetService petService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, PetService petService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, PetService petService, SpecialtyService specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.petService = petService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -73,6 +75,13 @@ public class DataLoader implements CommandLineRunner {
                 petTypes.toArray(new PetType[petTypes.size()])[1],
                 LocalDate.now(),
                 owners.toArray(new Owner[owners.size()])[0]));
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(pets.toArray(new Pet[pets.size()])[1]);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Covid-Cat");
+        visitService.save(catVisit);
+
     }
 
     private Specialty createSpecialty(String description) {
