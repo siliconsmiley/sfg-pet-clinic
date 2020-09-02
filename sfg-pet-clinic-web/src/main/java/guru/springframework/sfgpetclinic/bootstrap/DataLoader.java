@@ -6,8 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author mhw
@@ -40,48 +40,52 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
-        Set<Owner> owners = new HashSet<>();
+        List<Owner> owners = new ArrayList<>();
         owners.add(createOwner("Michael", "Weston", "123 Main St.", "City1", "1234567890"));
         owners.add(createOwner("Karen", "CentralPark", "001 Privilege Dr.", "City2", "0001112222"));
         owners.add(createOwner("Joe", "Dirt", "address3", "city3", "3334445555"));
         System.out.println("loaded Owners...");
 
-        Set<Specialty> specialties = new HashSet<>();
+        List<Specialty> specialties = new ArrayList<>();
         specialties.add(createSpecialty("Radiology"));
         specialties.add(createSpecialty("Surgery"));
         specialties.add(createSpecialty("Dentistry"));
         System.out.println("loaded Specialties...");
 
-        Set<Vet> vets = new HashSet<>();
+        List<Vet> vets = new ArrayList<>();
         vets.add(createVet("Sand", "Witch", specialties.toArray(new Specialty[specialties.size()])[0]));
         vets.add(createVet("Silly", "Vet", specialties.toArray(new Specialty[specialties.size()])[1]));
         vets.add(createVet("Vetty", "McVetface", specialties.toArray(new Specialty[specialties.size()])[2]));
         System.out.println("loaded Vets...");
 
-        Set<PetType> petTypes = new HashSet<>();
+        List<PetType> petTypes = new ArrayList<>();
         petTypes.add(createPetType("Dog"));
         petTypes.add(createPetType("Cat"));
         petTypes.add(createPetType("Fish"));
         System.out.println("loaded Pet Types...");
 
-        Set<Pet> pets = new HashSet<>();
+        List<Pet> pets = new ArrayList<>();
         // add a dog to Michael
         pets.add(createPet("Fido",
-                petTypes.toArray(new PetType[petTypes.size()])[0],
+                petTypes.get(0),
                 LocalDate.now(),
-                owners.toArray(new Owner[owners.size()])[0]));
+                owners.get(0)));
         // add a cat to Karen
         pets.add(createPet("Shadow",
-                petTypes.toArray(new PetType[petTypes.size()])[1],
+                petTypes.get(1),
                 LocalDate.now(),
-                owners.toArray(new Owner[owners.size()])[0]));
+                owners.get(1)));
+        System.out.println("added Pets to Owners...");
 
-        Visit catVisit = new Visit();
-        catVisit.setPet(pets.toArray(new Pet[pets.size()])[1]);
-        catVisit.setDate(LocalDate.now());
-        catVisit.setDescription("Covid-Cat");
-        visitService.save(catVisit);
+        List<Visit> visits = new ArrayList<>();
+        visits.add(createVisit(pets.get(0),
+                LocalDate.now(),
+                "Ate a toy."));
 
+        visits.add(createVisit(pets.get(1),
+                LocalDate.now(),
+                "Covid-Cat"));
+        System.out.println("created Visits...");
     }
 
     private Specialty createSpecialty(String description) {
@@ -122,12 +126,22 @@ public class DataLoader implements CommandLineRunner {
         Pet pet = new Pet();
         pet.setName(name);
         pet.setPetType(petType);
-        pet.setBirthdate(birthday);
+        pet.setBirthDate(birthday);
         pet.setOwner(owner);
         owner.getPets().add(pet);
-        ownerService.save(owner);
 
         Pet savedPet = petService.save(pet);
+        ownerService.save(owner);
+
         return savedPet;
+    }
+
+    private Visit createVisit(Pet pet, LocalDate date, String description) {
+        Visit visit = new Visit();
+        visit.setDescription(description);
+        visit.setDate(date);
+        visit.setPet(pet);
+        visitService.save(visit);
+        return visit;
     }
 }
