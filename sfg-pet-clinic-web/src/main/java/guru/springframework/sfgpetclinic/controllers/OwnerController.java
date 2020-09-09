@@ -43,7 +43,7 @@ public class OwnerController {
         }
 
         // find owners by last name
-        List<Owner> results = ownerService.findAllByLastNameLikeIgnoreCase("%" + owner.getLastName() + "%");
+        List<Owner> results = ownerService.findByLastNameContainingIgnoreCase(owner.getLastName());
 
         if (results.isEmpty()) {
             // no owners found

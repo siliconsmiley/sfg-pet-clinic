@@ -80,7 +80,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     }
 
     @Override
-    public List<Owner> findAllByLastNameLikeIgnoreCase(String lastName) {
+    public List<Owner> findByLastNameContainingIgnoreCase(String lastName) {
         // todo - implement map service
         return null;
     }

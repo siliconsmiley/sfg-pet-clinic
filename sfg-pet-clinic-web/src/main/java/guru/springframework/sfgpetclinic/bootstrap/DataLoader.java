@@ -44,6 +44,8 @@ public class DataLoader implements CommandLineRunner {
         owners.add(createOwner("Michael", "Weston", "123 Main St.", "City1", "1234567890"));
         owners.add(createOwner("Karen", "CentralPark", "001 Privilege Dr.", "City2", "0001112222"));
         owners.add(createOwner("Joe", "Dirt", "address3", "city3", "3334445555"));
+        owners.add(createOwner("aaa", "aaa", "aaa", "aaa", "1234"));
+        owners.add(createOwner("aaaa", "aaaa", "aaa", "aaa", "1234"));
         System.out.println("loaded Owners...");
 
         List<Specialty> specialties = new ArrayList<>();
